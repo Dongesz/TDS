@@ -28,6 +28,8 @@ public class Plot : MonoBehaviour
 
     private void OnMouseDown()
     {
+
+        this.gameObject.SetActive(false);
         if (tower != null) return;
 
 

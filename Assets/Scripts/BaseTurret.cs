@@ -6,53 +6,30 @@ using UnityEditor;
 public class BaseTurret : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private Transform turretRotationPoint;
+
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firingPoint;
     [Header("Attribute")]
     [SerializeField] private float targetingRange = 5f;
-    [SerializeField] private float rotationSpeed = 200f;
     [SerializeField] private float bps = 1f;
     [SerializeField] private int TowerDmg = 50;
     [Header("Idle Settings")]
-    [SerializeField] private float idleRotationAngle = 0f;
+    
 
     
     private Transform target;
     private float timeUntilFire;
 
-    private void Start()
-    {
-        
-        
-        if (transform.position.x < 0)
-        {
-            
-            turretRotationPoint.localScale = new Vector3(-1, 1, 1);
-        }
-        else
-        {
-            
-            turretRotationPoint.localScale = new Vector3(1, 1, 1);
-        }
-    }
+   
 
     private void Update()
     {
         if (target == null)
         {
             FindTarget();
-
-            
-            if (target == null)
-            {
-                RotateToIdle();
-                return;
-            }
         }
 
-        RotateTowardsTarget();
 
         if (!CheckTargetIsInRange())
         {
@@ -92,44 +69,8 @@ public class BaseTurret : MonoBehaviour
         return Vector2.Distance(target.position, transform.position) <= targetingRange;
     }
 
-    private void RotateTowardsTarget()
-    {
-        Vector2 direction = (target.position - transform.position).normalized;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 190f;
-
-        if (turretRotationPoint.localScale.x < 0)
-        {
-            angle += 190f;
-        }
-
-        float currentAngle = turretRotationPoint.rotation.eulerAngles.z;
-        float angleDifference = Mathf.Abs(Mathf.DeltaAngle(currentAngle, angle));
-
-        if (angleDifference > 170f)
-        {
-            turretRotationPoint.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        }
-        else
-        {
-            Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
-            turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-        }
-
-        if (direction.x < 0)
-        {
-            turretRotationPoint.localScale = new Vector3(1, 1, 1);
-        }
-        else
-        {
-            turretRotationPoint.localScale = new Vector3(-1, 1, 1);
-        }
-    }
-
-    private void RotateToIdle()
-    {
-        Quaternion idleRotation = Quaternion.Euler(new Vector3(0, 0, idleRotationAngle));
-        turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, idleRotation, rotationSpeed * Time.deltaTime);
-    }
+   
+    
 
     private void OnDrawGizmosSelected()
     {
