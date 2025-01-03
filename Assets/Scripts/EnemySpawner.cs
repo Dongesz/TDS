@@ -22,28 +22,42 @@ public class EnemySpawner : MonoBehaviour
     private int enemiesAlive;
     private int enemiesLeftToSpawn;
     private bool isSpawning = false;
+    private bool isWaveActive = false; // Új változó a hullám állapotának kezelésére
+
+    private Timer timer;
 
     private void Awake()
     {
         onEnemyDestroy.AddListener(EnemyDestroyed);
     }
+
     private void Start()
     {
-        StartCoroutine(StartWave());
+        timer = FindObjectOfType<Timer>();
     }
+
     private void Update()
     {
+        // Csak akkor hívjuk meg StartWave-et, ha még nem indult el a hullám
+        if (!isWaveActive && !timer.isSprite1Active)
+        {
+            StartCoroutine(StartWave());
+        }
+
         if (!isSpawning) return;
 
         timeSinceLastSpawn += Time.deltaTime;
 
-        if(timeSinceLastSpawn >= (1f / enemiesPerSec) && enemiesLeftToSpawn > 0)
+        // Ellenség spawnolás
+        if (timeSinceLastSpawn >= (1f / enemiesPerSec) && enemiesLeftToSpawn > 0)
         {
             SpawnEnemy();
             enemiesLeftToSpawn--;
             enemiesAlive++;
             timeSinceLastSpawn = 0f;
         }
+
+        // Ha az összes ellenség elpusztult, befejezzük a hullámot
         if (enemiesAlive == 0 && enemiesLeftToSpawn == 0)
         {
             EndWave();
@@ -52,9 +66,10 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        GameObject prefabToSpawn = enemyPrefabs[0];
+        GameObject prefabToSpawn = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];  // Véletlenszerû ellenség
         Instantiate(prefabToSpawn, LevelManager.main.StartPoint.position, Quaternion.identity);
     }
+
     private void EnemyDestroyed()
     {
         enemiesAlive--;
@@ -62,21 +77,23 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator StartWave()
     {
-        yield return new WaitForSeconds(timeBetweenWaves);
-        isSpawning = true;
-        enemiesLeftToSpawn = EnemiesPerWave();
+        isWaveActive = true;  // Beállítjuk, hogy a hullám aktív
+        yield return new WaitForSeconds(timeBetweenWaves);  // Késleltetés a hullám elõtt
+        isSpawning = true;  // Elindítjuk a spawnolást
+        enemiesLeftToSpawn = EnemiesPerWave();  // Beállítjuk a hátralévõ ellenségeket
     }
 
     private void EndWave()
     {
-        isSpawning = false;
-        timeSinceLastSpawn = 0f;
-        currentWave++;
-        StartCoroutine(StartWave());
+        isSpawning = false;  // Leállítjuk a spawnolást
+        timeSinceLastSpawn = 0f;  // Visszaállítjuk az idõt
+        currentWave++;  // Tovább lépünk a következõ hullámra
+        isWaveActive = false;  // A hullám befejezõdött
     }
 
     private int EnemiesPerWave()
     {
-        return Mathf.RoundToInt(BaseEnemies * Mathf.Pow(currentWave, difficultyScalingFactor)) ;
+        // Skálázza a hullámok számát a nehézségi szint figyelembevételével
+        return Mathf.RoundToInt(BaseEnemies * Mathf.Pow(currentWave, difficultyScalingFactor));
     }
 }
