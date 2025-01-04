@@ -16,12 +16,8 @@ public class BaseTurret : MonoBehaviour
     [SerializeField] private int TowerDmg = 50;
     [Header("Idle Settings")]
     
-
-    
     private Transform target;
     private float timeUntilFire;
-
-   
 
     private void Update()
     {
@@ -68,9 +64,6 @@ public class BaseTurret : MonoBehaviour
     {
         return Vector2.Distance(target.position, transform.position) <= targetingRange;
     }
-
-   
-    
 
     private void OnDrawGizmosSelected()
     {

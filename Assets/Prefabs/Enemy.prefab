@@ -128,7 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6560841682213348194}
-  moveSpeed: 3.12
+  moveSpeed: 5
+  enemy: {fileID: 5083484554339732921}
 --- !u!58 &6069030725464314524
 CircleCollider2D:
   m_ObjectHideFlags: 0

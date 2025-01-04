@@ -26,9 +26,7 @@ public class Bullet : MonoBehaviour
     private void FixedUpdate()
     {
         if (!target) return;
-
         Vector2 direction = (target.position - transform.position).normalized;
-
         rb.velocity = direction * bulletSpeed;
     }
 
@@ -37,16 +35,13 @@ public class Bullet : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.GetComponent<Health>().TakeDamage(bulletDamage);
-        }   
-
+        }  
         Destroy(gameObject);
     }
 
     private IEnumerator DestroyAfterTime(float delay)
-    {
-        
+    {  
         yield return new WaitForSeconds(delay-3);
-
         Destroy(gameObject);
     }
 }

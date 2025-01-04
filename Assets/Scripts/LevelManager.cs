@@ -7,8 +7,13 @@ public class LevelManager : MonoBehaviour
     public static LevelManager main;
     public Transform [] path;
     public Transform StartPoint;
+    public Transform EndPoint;
+
+    
 
     public int currency;
+    public int kills;
+    public int health;
 
     private void Awake()
     {
@@ -17,13 +22,24 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        currency = 1000;
+        currency = 200;
+        health = 100;
     }
 
     public void IncreaseCurrency(int amount)
     {
         currency += amount;
     }
+    public void IncreaseKills(int amount)
+    {
+        kills += amount;
+    }
+    public void DecreaseHp(int amount)
+    {
+        health -= amount;
+    }
+
+
 
     public bool SpendCurrency(int amount)
     {

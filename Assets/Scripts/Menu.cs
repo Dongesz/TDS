@@ -8,18 +8,15 @@ using UnityEngine.UI;
 public class Menu : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI currencyUI;
+    [SerializeField] TextMeshProUGUI killsUI;
+    [SerializeField] TextMeshProUGUI HealthUI;
     [SerializeField] Animator anim;
     [SerializeField] private UnityEngine.UI.Image imageComponent;
     [SerializeField] private Sprite sprite1;       
     [SerializeField] private Sprite sprite2;
-
-    private void Start()
-    {
-        
-    }
+   
     private bool isMenuOpen = true;
     private bool isSprite1Active = true;           
-
     public void ToggleMenu()
     {
         isMenuOpen = !isMenuOpen;
@@ -31,25 +28,21 @@ public class Menu : MonoBehaviour
         {
             if (isSprite1Active)
             {
-                imageComponent.sprite = sprite2;   // Switch to sprite2
+                imageComponent.sprite = sprite2;   
             }
             else
             {
-                imageComponent.sprite = sprite1;   // Switch back to sprite1
+                imageComponent.sprite = sprite1;   
             }
 
-            isSprite1Active = !isSprite1Active;    // Toggle the state
+            isSprite1Active = !isSprite1Active;    
         }
-    
 }
 
     private void OnGUI()
     {
        currencyUI.text = LevelManager.main.currency.ToString();
-    }
-
-    public void SetSelected()
-    {
-         
+       killsUI.text = LevelManager.main.kills.ToString();
+       HealthUI.text = LevelManager.main.health.ToString();
     }
 }

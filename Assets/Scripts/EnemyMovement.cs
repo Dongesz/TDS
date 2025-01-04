@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyMovement : MonoBehaviour
 {
-    
     [Header("References")]
     [SerializeField]
     private Rigidbody2D rb;
@@ -16,6 +18,7 @@ public class EnemyMovement : MonoBehaviour
     private Transform target;
     private int pathIndex = 0;
     private float baseSpeed;
+    
     private void Start()
     {
         baseSpeed = moveSpeed;
@@ -32,6 +35,7 @@ public class EnemyMovement : MonoBehaviour
         {
             EnemySpawner.onEnemyDestroy.Invoke();
             Destroy(gameObject);
+            LevelManager.main.DecreaseHp(20);
             return;
         }
         else

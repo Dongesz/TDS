@@ -6,14 +6,12 @@ public class BuildManager : MonoBehaviour
 {
     public static BuildManager main;
 
-    
     [SerializeField] private Tower[] towers;
 
     private int SelctedTower = 0;
 
     private void Awake()
     {
-
         main = this;
     }
 
