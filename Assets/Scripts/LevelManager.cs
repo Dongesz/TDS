@@ -9,8 +9,6 @@ public class LevelManager : MonoBehaviour
     public Transform StartPoint;
     public Transform EndPoint;
 
-    
-
     public int currency;
     public int kills;
     public int health;
@@ -22,7 +20,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        currency = 200;
+        currency = 2000;
         health = 100;
     }
 
@@ -30,16 +28,16 @@ public class LevelManager : MonoBehaviour
     {
         currency += amount;
     }
+
     public void IncreaseKills(int amount)
     {
         kills += amount;
     }
+
     public void DecreaseHp(int amount)
     {
         health -= amount;
     }
-
-
 
     public bool SpendCurrency(int amount)
     {

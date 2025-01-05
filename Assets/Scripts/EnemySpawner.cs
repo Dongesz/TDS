@@ -25,6 +25,8 @@ public class EnemySpawner : MonoBehaviour
     private bool isWaveActive = false; // Új változó a hullám állapotának kezelésére
 
     private Timer timer;
+    public CooldownBarAnimator cooldownBarAnimator;
+
 
     private void Awake()
     {
@@ -34,6 +36,17 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         timer = FindObjectOfType<Timer>();
+        cooldownBarAnimator = FindObjectOfType<CooldownBarAnimator>();
+
+        if (timer == null)
+        {
+            Debug.LogError("CooldownBarAnimator not found!");
+        }
+        else
+        {
+            Debug.Log("CooldownBarAnimator found successfully!");
+        }
+        
     }
 
     private void Update()
@@ -42,6 +55,7 @@ public class EnemySpawner : MonoBehaviour
         if (!isWaveActive && !timer.isSprite1Active)
         {
             StartCoroutine(StartWave());
+            cooldownBarAnimator?.StartMining();
         }
 
         if (!isSpawning) return;
@@ -61,6 +75,8 @@ public class EnemySpawner : MonoBehaviour
         if (enemiesAlive == 0 && enemiesLeftToSpawn == 0)
         {
             EndWave();
+            
+            cooldownBarAnimator?.StopMining();
         }
     }
 
@@ -76,11 +92,12 @@ public class EnemySpawner : MonoBehaviour
     }
 
     private IEnumerator StartWave()
-    {
+    { 
         isWaveActive = true;  // Beállítjuk, hogy a hullám aktív
         yield return new WaitForSeconds(timeBetweenWaves);  // Késleltetés a hullám elõtt
         isSpawning = true;  // Elindítjuk a spawnolást
         enemiesLeftToSpawn = EnemiesPerWave();  // Beállítjuk a hátralévõ ellenségeket
+
     }
 
     private void EndWave()
@@ -89,6 +106,8 @@ public class EnemySpawner : MonoBehaviour
         timeSinceLastSpawn = 0f;  // Visszaállítjuk az idõt
         currentWave++;  // Tovább lépünk a következõ hullámra
         isWaveActive = false;  // A hullám befejezõdött
+        
+
     }
 
     private int EnemiesPerWave()

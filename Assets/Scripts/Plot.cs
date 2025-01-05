@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Plot : MonoBehaviour
 {
+    [SerializeField] private GameObject plot;
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private Color hoverColor;
 
@@ -28,17 +29,40 @@ public class Plot : MonoBehaviour
 
     private void OnMouseDown()
     {
-
-        this.gameObject.SetActive(false);
-        if (tower != null) return;
-
         Tower towerToBuild = BuildManager.main.GetSelectedTower();
-        if (towerToBuild.cost > LevelManager.main.currency)
+
+        if (!(BuildManager.main.SelctedTower == 1) && !(plot.tag == "stonespawn"))
         {
-            Debug.Log("you cant afford this tower");
-            return;
+            if (tower != null) return;
+
+            if (towerToBuild.cost > LevelManager.main.currency)
+            {
+                Debug.Log("you cant afford this tower");
+                return;
+            }
+            else if (!(towerToBuild.cost > LevelManager.main.currency)) this.gameObject.SetActive(false);
+
+
+
+            LevelManager.main.SpendCurrency(towerToBuild.cost);
+            tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
         }
-        LevelManager.main.SpendCurrency(towerToBuild.cost);
-        tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
+        else if (BuildManager.main.SelctedTower == 1 && plot.tag == "stonespawn")
+        {
+            if (tower != null) return;
+
+            if (towerToBuild.cost > LevelManager.main.currency)
+            {
+                Debug.Log("you cant afford this tower");
+                return;
+            }
+            else if (!(towerToBuild.cost > LevelManager.main.currency)) this.gameObject.SetActive(false);
+
+            LevelManager.main.SpendCurrency(towerToBuild.cost);
+            tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
+           
+        }
+
+
     }
 }

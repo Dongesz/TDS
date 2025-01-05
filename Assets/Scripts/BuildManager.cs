@@ -8,7 +8,7 @@ public class BuildManager : MonoBehaviour
 
     [SerializeField] private Tower[] towers;
 
-    private int SelctedTower = 0;
+    public int SelctedTower = 0;
 
     private void Awake()
     {
@@ -22,6 +22,6 @@ public class BuildManager : MonoBehaviour
 
     public void SetSelectedTower(int _selectedTower)
     {
-        SelctedTower = _selectedTower;
+        SelctedTower = _selectedTower; 
     }
 }

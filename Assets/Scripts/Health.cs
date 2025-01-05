@@ -17,6 +17,7 @@ public class Health : MonoBehaviour
             EnemySpawner.onEnemyDestroy.Invoke();
             LevelManager.main.IncreaseCurrency(currencyWorth);
             LevelManager.main.IncreaseKills(1);
+            
 
 
             isDestroyed = true;

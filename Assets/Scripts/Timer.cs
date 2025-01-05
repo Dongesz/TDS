@@ -24,11 +24,25 @@ public class Timer : MonoBehaviour
 
     private void Start()
     {
-        if (enemymovement == null) enemymovement = FindObjectOfType<EnemyMovement>(); // Ellenõrizzük, hogy van-e már hozzárendelve
-        if (bullet == null) bullet = FindObjectOfType<Bullet>(); // Ha nincs, akkor keressük meg a Bullet komponenst
+        if (enemymovement == null)
+        {
+            enemymovement = FindObjectOfType<EnemyMovement>();
+        }
 
-        originalEnemySpeed = enemymovement.moveSpeed; // Eredeti sebességek mentése
-        originalBulletSpeed = bullet.bulletSpeed;
+        if (bullet == null)
+        {
+            bullet = FindObjectOfType<Bullet>();
+        }
+
+        if (enemymovement != null)
+        {
+            originalEnemySpeed = enemymovement.moveSpeed; // Eredeti sebesség mentése
+        }
+
+        if (bullet != null)
+        {
+            originalBulletSpeed = bullet.bulletSpeed; // Eredeti sebesség mentése
+        }
     }
 
     public void StopGame()
@@ -55,7 +69,7 @@ public class Timer : MonoBehaviour
             if (isSprite1Active1)
             {
                 imageComponent1.sprite = sprite4; // Gyorsítás állapotban
-                
+
             }
             else
             {
