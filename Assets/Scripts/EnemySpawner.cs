@@ -17,12 +17,12 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Events")]
     public static UnityEvent onEnemyDestroy = new UnityEvent();
-    private int currentWave = 1;
+    public int currentWave = 1;
     private float timeSinceLastSpawn;
-    private int enemiesAlive;
+    public int enemiesAlive;
     private int enemiesLeftToSpawn;
     private bool isSpawning = false;
-    private bool isWaveActive = false; // Új változó a hullám állapotának kezelésére
+    public bool isWaveActive = false; // Új változó a hullám állapotának kezelésére
 
     private Timer timer;
     public CooldownBarAnimator cooldownBarAnimator;
@@ -38,15 +38,8 @@ public class EnemySpawner : MonoBehaviour
         timer = FindObjectOfType<Timer>();
         cooldownBarAnimator = FindObjectOfType<CooldownBarAnimator>();
 
-        if (timer == null)
-        {
-            Debug.LogError("CooldownBarAnimator not found!");
-        }
-        else
-        {
-            Debug.Log("CooldownBarAnimator found successfully!");
-        }
-        
+        Debug.Log(isWaveActive);
+
     }
 
     private void Update()
@@ -55,7 +48,6 @@ public class EnemySpawner : MonoBehaviour
         if (!isWaveActive && !timer.isSprite1Active)
         {
             StartCoroutine(StartWave());
-            cooldownBarAnimator?.StartMining();
         }
 
         if (!isSpawning) return;
@@ -75,9 +67,9 @@ public class EnemySpawner : MonoBehaviour
         if (enemiesAlive == 0 && enemiesLeftToSpawn == 0)
         {
             EndWave();
-            
-            cooldownBarAnimator?.StopMining();
         }
+        
+
     }
 
     private void SpawnEnemy()

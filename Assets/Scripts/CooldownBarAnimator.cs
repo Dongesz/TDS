@@ -11,35 +11,52 @@ public class CooldownBarAnimator : MonoBehaviour
     private int currentFrame;
     private float timer;
 
+    private Timer TimerScript;
+    private EnemySpawner EnemySpawnerScript;
+
 
     void Start()
     {
+        TimerScript = FindObjectOfType<Timer>();
+        EnemySpawnerScript = FindObjectOfType<EnemySpawner>();
         timePerFrame = cooldownDuration / cooldownSprites.Length;
         currentFrame = 0;
         timer = 0f;
     }
+    void Update()
+    {
+        StartMining();
+    }
+
 
     public void StartMining()
     {
-        timer += Time.deltaTime;
-
-        if (timer >= timePerFrame)
+        if(EnemySpawnerScript.isWaveActive)
         {
-            timer -= timePerFrame;
-            currentFrame = (currentFrame + 1) % cooldownSprites.Length;
-            cooldownRenderer.sprite = cooldownSprites[currentFrame];
+            // Idõ frissítése
+            timer += Time.deltaTime;
 
-            if (currentFrame == 0)
+            if (timer >= timePerFrame)
             {
-                // Az animáció befejezõdött, hívja meg a LevelManager metódust
-                LevelManager.main.IncreaseCurrency(50);
+                timer -= timePerFrame;
+                currentFrame = (currentFrame + 1) % cooldownSprites.Length;
+                cooldownRenderer.sprite = cooldownSprites[currentFrame];
+
+                // Ha elérte az animáció végét
+                if (currentFrame == 0)
+                {
+                    // Az animáció befejezõdött, hívja meg a LevelManager metódust
+                    LevelManager.main.IncreaseCurrency(50);
+                }
             }
+
+            // A feltétel ellenõrzése a ciklus végén
         }
     }
 
+
     public void StopMining()
     {
-        cooldownRenderer.sprite = cooldownSpritesstop;
     }
 
 

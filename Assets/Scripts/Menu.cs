@@ -10,13 +10,21 @@ public class Menu : MonoBehaviour
     [SerializeField] TextMeshProUGUI currencyUI;
     [SerializeField] TextMeshProUGUI killsUI;
     [SerializeField] TextMeshProUGUI HealthUI;
+    [SerializeField] TextMeshProUGUI WaveUI;
     [SerializeField] Animator anim;
     [SerializeField] private UnityEngine.UI.Image imageComponent;
     [SerializeField] private Sprite sprite1;       
     [SerializeField] private Sprite sprite2;
-   
+    private EnemySpawner EnemySpawnerScript;
+
     private bool isMenuOpen = true;
-    private bool isSprite1Active = true;           
+    private bool isSprite1Active = true;
+
+    private void Start()
+    {
+        EnemySpawnerScript = FindObjectOfType<EnemySpawner>();
+
+    }
     public void ToggleMenu()
     {
         isMenuOpen = !isMenuOpen;
@@ -44,5 +52,6 @@ public class Menu : MonoBehaviour
        currencyUI.text = LevelManager.main.currency.ToString();
        killsUI.text = LevelManager.main.kills.ToString();
        HealthUI.text = LevelManager.main.health.ToString();
+       WaveUI.text = EnemySpawnerScript.currentWave.ToString();
     }
 }
