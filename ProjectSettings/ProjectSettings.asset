@@ -704,11 +704,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 70744081-558d-4135-86cd-4b6f8feb470d
+  cloudProjectId: 7e4f0905-56bb-43af-b3bb-01f3b8ecf425
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: TDS
-  organizationId: dongesz
+  projectName: MedivalTowerDsfense
+  organizationId: m-t-majoros
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

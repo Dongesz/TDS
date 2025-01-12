@@ -1,58 +1,47 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.UI;
 
-
-namespace TMPro.Examples
+public class VolumeController : MonoBehaviour
 {
-    
-    public class SimpleScript : MonoBehaviour
+    public Slider volumeSlider; // Referencia a Slider komponenshez
+    public AudioSource audioSource; // Referencia az AudioSource-hoz
+
+    private static VolumeController instance; // Statikus példány a Singleton mintához
+
+    void Awake()
     {
-
-        private TextMeshPro m_textMeshPro;
-        //private TMP_FontAsset m_FontAsset;
-
-        private const string label = "The <#0050FF>count is: </color>{0:2}";
-        private float m_frame;
-
-
-        void Start()
+        // Ellenőrzés, hogy van-e már egy példány
+        if (instance == null)
         {
-            // Add new TextMesh Pro Component
-            m_textMeshPro = gameObject.AddComponent<TextMeshPro>();
+            instance = this; // Ha nincs, akkor beállítjuk az aktuális példányt
+            DontDestroyOnLoad(gameObject); // Megakadályozza, hogy a zene törlődjön jelenetváltáskor
+        }
+        else
+        {
+            Destroy(gameObject); // Ha van már egy példány, akkor töröljük az újat
+        }
+    }
 
-            m_textMeshPro.autoSizeTextContainer = true;
-
-            // Load the Font Asset to be used.
-            //m_FontAsset = Resources.Load("Fonts & Materials/LiberationSans SDF", typeof(TMP_FontAsset)) as TMP_FontAsset;
-            //m_textMeshPro.font = m_FontAsset;
-
-            // Assign Material to TextMesh Pro Component
-            //m_textMeshPro.fontSharedMaterial = Resources.Load("Fonts & Materials/LiberationSans SDF - Bevel", typeof(Material)) as Material;
-            //m_textMeshPro.fontSharedMaterial.EnableKeyword("BEVEL_ON");
-            
-            // Set various font settings.
-            m_textMeshPro.fontSize = 48;
-
-            m_textMeshPro.alignment = TextAlignmentOptions.Center;
-            
-            //m_textMeshPro.anchorDampening = true; // Has been deprecated but under consideration for re-implementation.
-            //m_textMeshPro.enableAutoSizing = true;
-
-            //m_textMeshPro.characterSpacing = 0.2f;
-            //m_textMeshPro.wordSpacing = 0.1f;
-
-            //m_textMeshPro.enableCulling = true;
-            m_textMeshPro.enableWordWrapping = false;
-
-            //textMeshPro.fontColor = new Color32(255, 255, 255, 255);
+    void Start()
+    {
+        // Alapértelmezett érték beállítása
+        float defaultVolume = 0.2f;
+        volumeSlider.value = defaultVolume;
+        if (audioSource != null)
+        {
+            audioSource.volume = defaultVolume;
         }
 
+        // Feliratkozás az OnValueChanged eseményre
+        volumeSlider.onValueChanged.AddListener(SetVolume);
+    }
 
-        void Update()
+    // A hangerő beállítása a slider aktuális értékére
+    public void SetVolume(float volume)
+    {
+        if (audioSource != null)
         {
-            m_textMeshPro.SetText(label, m_frame % 1000);
-            m_frame += 1 * Time.deltaTime;
+            audioSource.volume = volume;
         }
-
     }
 }

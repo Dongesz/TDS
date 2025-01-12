@@ -798,7 +798,7 @@ TextureImporter:
         width: 96
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -806,6 +806,27 @@ TextureImporter:
       bones: []
       spriteID: d8f5c5e9282f90f4aa38f2af60e6c9cb
       internalID: -476787769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Menu_34
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 388
+        width: 17
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c6c1c747f38b2a439d1029bc5094942
+      internalID: 1289758748
       vertices: []
       indices: 
       edges: []
@@ -849,6 +870,7 @@ TextureImporter:
       Menu_31: -622253499
       Menu_32: 1788762641
       Menu_33: -476787769
+      Menu_34: 1289758748
       Menu_4: -1574344432
       Menu_5: -567940686
       Menu_6: 22273042
