@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class LevelManager : MonoBehaviour
     {
         if (health <= 0)
         {
-            UnityEditor.EditorApplication.isPlaying = false;
+            SceneManager.LoadSceneAsync(0);
         }
     }
     private void Awake()
