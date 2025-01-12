@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Events")]
     public static UnityEvent onEnemyDestroy = new UnityEvent();
-    public int currentWave = 1;
+    public int currentWave = 0;
     private float timeSinceLastSpawn;
     public int enemiesAlive;
     private int enemiesLeftToSpawn;
@@ -38,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
         timer = FindObjectOfType<Timer>();
         cooldownBarAnimator = FindObjectOfType<CooldownBarAnimator>();
 
-        Debug.Log(isWaveActive);
+        
 
     }
 
@@ -97,6 +97,7 @@ public class EnemySpawner : MonoBehaviour
         isSpawning = false;  // Leállítjuk a spawnolást
         timeSinceLastSpawn = 0f;  // Visszaállítjuk az idõt
         currentWave++;  // Tovább lépünk a következõ hullámra
+        Debug.Log(currentWave);
         isWaveActive = false;  // A hullám befejezõdött
         
 

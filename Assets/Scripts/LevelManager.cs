@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -13,6 +14,13 @@ public class LevelManager : MonoBehaviour
     public int kills;
     public int health;
 
+    private void Update()
+    {
+        if (health <= 0)
+        {
+            UnityEditor.EditorApplication.isPlaying = false;
+        }
+    }
     private void Awake()
     {
         main = this;

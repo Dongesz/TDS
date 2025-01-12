@@ -136,4 +136,4 @@ MonoBehaviour:
   firingPoint: {fileID: 9134388782200011290}
   targetingRange: 5
   bps: 1
-  TowerDmg: 50
+  TowerDmg: 10
