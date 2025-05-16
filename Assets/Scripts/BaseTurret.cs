@@ -42,7 +42,6 @@ public class BaseTurret : MonoBehaviour
             }
         }
     }
-
     private void Shoot()
     {
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
@@ -50,7 +49,6 @@ public class BaseTurret : MonoBehaviour
         bulletScript.SetTarget(target);
         bulletScript.setDmg(TowerDmg);
     }
-
     private void FindTarget()
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, Vector2.zero, 0f, enemyMask);
@@ -64,7 +62,6 @@ public class BaseTurret : MonoBehaviour
             target = null; // Biztosítsuk, hogy a target null legyen, ha nincs találat
         }
     }
-
     private bool CheckTargetIsInRange()
     {
         if (target == null)

@@ -70,12 +70,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560454777829284955, guid: 18c5d0fba4e2d3841aeb0f393763dfcb, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5361440386103231306, guid: 18c5d0fba4e2d3841aeb0f393763dfcb, type: 3}
       propertyPath: plot
       value: 
       objectReference: {fileID: 3568472120533307865}
+    - target: {fileID: 5361440386103231306, guid: 18c5d0fba4e2d3841aeb0f393763dfcb, type: 3}
+      propertyPath: hoverColor.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
     - target: {fileID: 6570172033998294781, guid: 18c5d0fba4e2d3841aeb0f393763dfcb, type: 3}
       propertyPath: m_Size.x
       value: 2.3

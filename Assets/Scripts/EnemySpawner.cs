@@ -1,6 +1,5 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -17,44 +16,26 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Events")]
     public static UnityEvent onEnemyDestroy = new UnityEvent();
+
     public int currentWave = 0;
     private float timeSinceLastSpawn;
     public int enemiesAlive;
     private int enemiesLeftToSpawn;
-    private bool isSpawning = false;
-    public bool isWaveActive = false; // Új változó a hullám állapotának kezelésére
-
-    private Timer timer;
-    public CooldownBarAnimator cooldownBarAnimator;
-
+    public bool isSpawning = false;
+    public bool isWaveActive = false;
 
     private void Awake()
     {
         onEnemyDestroy.AddListener(EnemyDestroyed);
     }
 
-    private void Start()
-    {
-        timer = FindObjectOfType<Timer>();
-        cooldownBarAnimator = FindObjectOfType<CooldownBarAnimator>();
-
-        
-
-    }
-
     private void Update()
     {
-        // Csak akkor hívjuk meg StartWave-et, ha még nem indult el a hullám
-        if (!isWaveActive && !timer.isSprite1Active)
-        {
-            StartCoroutine(StartWave());
-        }
-
         if (!isSpawning) return;
+        WinWave();
 
         timeSinceLastSpawn += Time.deltaTime;
 
-        // Ellenség spawnolás
         if (timeSinceLastSpawn >= (1f / enemiesPerSec) && enemiesLeftToSpawn > 0)
         {
             SpawnEnemy();
@@ -63,18 +44,21 @@ public class EnemySpawner : MonoBehaviour
             timeSinceLastSpawn = 0f;
         }
 
-        // Ha az összes ellenség elpusztult, befejezzük a hullámot
-        if (enemiesAlive == 0 && enemiesLeftToSpawn == 0)
+        if (isSpawning && enemiesLeftToSpawn <= 0 && enemiesAlive <= 0)
         {
             EndWave();
         }
-        
-
     }
 
     private void SpawnEnemy()
     {
-        GameObject prefabToSpawn = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];  // Véletlenszerû ellenség
+        if (LevelManager.main == null || LevelManager.main.StartPoint == null)
+        {
+            Debug.LogError("StartPoint nem elÃ©rhetÅ‘, nem lehet spawnolni!");
+            return;
+        }
+
+        GameObject prefabToSpawn = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
         Instantiate(prefabToSpawn, LevelManager.main.StartPoint.position, Quaternion.identity);
     }
 
@@ -83,29 +67,63 @@ public class EnemySpawner : MonoBehaviour
         enemiesAlive--;
     }
 
-    private IEnumerator StartWave()
-    { 
-        isWaveActive = true;  // Beállítjuk, hogy a hullám aktív
-        yield return new WaitForSeconds(timeBetweenWaves);  // Késleltetés a hullám elõtt
-        isSpawning = true;  // Elindítjuk a spawnolást
-        enemiesLeftToSpawn = EnemiesPerWave();  // Beállítjuk a hátralévõ ellenségeket
+    public void BeginNextWave()
+    {
+        if (isWaveActive || isSpawning) return;
+        StartCoroutine(StartWave());
+    }
 
+    private IEnumerator StartWave()
+    {
+        yield return new WaitForSeconds(0.1f); 
+        isWaveActive = true;
+        yield return new WaitForSeconds(timeBetweenWaves);
+        isSpawning = true;
+        enemiesLeftToSpawn = EnemiesPerWave();
     }
 
     private void EndWave()
     {
-        isSpawning = false;  // Leállítjuk a spawnolást
-        timeSinceLastSpawn = 0f;  // Visszaállítjuk az idõt
-        currentWave++;  // Tovább lépünk a következõ hullámra
-        Debug.Log(currentWave);
-        isWaveActive = false;  // A hullám befejezõdött
-        
+        isSpawning = false;
+        timeSinceLastSpawn = 0f;
+        currentWave++;
+        isWaveActive = false;
 
+        TimerManager.Instance.isGameRunning = false;
+
+        TimerUI ui = FindObjectOfType<TimerUI>();
+        if (ui != null)
+            ui.UpdateStartStopSprite();
     }
 
     private int EnemiesPerWave()
     {
-        // Skálázza a hullámok számát a nehézségi szint figyelembevételével
         return Mathf.RoundToInt(BaseEnemies * Mathf.Pow(currentWave, difficultyScalingFactor));
+    }
+
+    public void StopAllWaves()
+    {
+        StopAllCoroutines();
+        isSpawning = false;
+        isWaveActive = false;
+        timeSinceLastSpawn = 0f;
+        enemiesLeftToSpawn = 0;
+        enemiesAlive = 0;
+
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            Destroy(enemy);
+        }
+
+        Debug.Log("HullÃ¡mok leÃ¡llÃ­tva, ellensÃ©gek eltakarÃ­tva, uram!");
+    }
+
+    public void WinWave()
+    {
+        if (currentWave > 1)
+        {
+            Debug.Log("You won!");
+        }
     }
 }

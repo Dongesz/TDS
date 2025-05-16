@@ -56,15 +56,31 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="D:\School\UnityProjects\MedivalTowerDefense\Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\ja\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <Analyzer Include="D:\School\UnityProjects\MedivalTowerDefense\Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\ko\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <Analyzer Include="D:\School\UnityProjects\MedivalTowerDefense\Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\fr\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <Analyzer Include="D:\School\UnityProjects\MedivalTowerDefense\Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\pl\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <Analyzer Include="D:\School\UnityProjects\MedivalTowerDefense\Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\cs\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <Analyzer Include="D:\School\UnityProjects\MedivalTowerDefense\Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\Microsoft.Extensions.Logging.Generators.dll" />
+    <Analyzer Include="D:\School\UnityProjects\MedivalTowerDefense\Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\zh-Hant\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <Analyzer Include="D:\School\UnityProjects\MedivalTowerDefense\Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\pt-BR\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <Analyzer Include="D:\School\UnityProjects\MedivalTowerDefense\Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\de\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <Analyzer Include="D:\School\UnityProjects\MedivalTowerDefense\Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\es\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <Analyzer Include="D:\School\UnityProjects\MedivalTowerDefense\Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\tr\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <Analyzer Include="D:\School\UnityProjects\MedivalTowerDefense\Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\zh-Hans\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <Analyzer Include="D:\School\UnityProjects\MedivalTowerDefense\Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\ru\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <Analyzer Include="D:\School\UnityProjects\MedivalTowerDefense\Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\it\Microsoft.Extensions.Logging.Generators.resources.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.22f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.22f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
+    <Compile Include="Assets\Scripts\DataBaseManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\Scripts\Tower.cs" />
+    <Compile Include="Assets\Scripts\TimerUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
@@ -74,11 +90,13 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
+    <Compile Include="Assets\Scripts\DBtest.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
+    <Compile Include="Assets\Scripts\Konyv.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
@@ -88,11 +106,13 @@
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\Scripts\Plot.cs" />
+    <Compile Include="Assets\Scripts\MapBuilder.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
+    <Compile Include="Assets\Scripts\TimerManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Scripts\BuildManager.cs" />
@@ -102,40 +122,104 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
-    <Compile Include="Assets\Scripts\Timer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\StoneMine.cs" />
     <Compile Include="Assets\Scripts\BaseTurret.cs" />
+    <Compile Include="Assets\Scripts\ProfileManager.cs" />
     <Compile Include="Assets\Scripts\CooldownBarAnimator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\zh-Hans\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\useSharedDesignerContext.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.4\cs\de\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.4\cs\zh-Hans\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn3.11\cs\es\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn3.11\cs\ja\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.4\cs\es\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\Microsoft.Extensions.Logging.Generators.dll" />
+    <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\THIRD-PARTY-NOTICES.TXT" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.4\cs\ru\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\ko\Microsoft.Extensions.Logging.Generators.resources.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\Packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\netstandard2.0\System.Diagnostics.DiagnosticSource.xml" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.4\cs\Microsoft.Extensions.Logging.Generators.dll" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn3.11\cs\cs\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn3.11\cs\zh-Hant\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\pl\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\zh-Hant\Microsoft.Extensions.Logging.Generators.resources.dll" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn3.11\cs\zh-Hans\Microsoft.Extensions.Logging.Generators.resources.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.4\cs\ja\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.4\cs\ko\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.4\cs\cs\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\fr\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\es\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\System.Diagnostics.DiagnosticSource.8.0.1\THIRD-PARTY-NOTICES.TXT" />
+    <None Include="Assets\Packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\netstandard2.0\System.Diagnostics.DiagnosticSource.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\cs\Microsoft.Extensions.Logging.Generators.resources.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\Packages\MySqlConnector.2.4.0\lib\netstandard2.1\MySqlConnector.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.4\cs\fr\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\LICENSE.TXT" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.4\cs\zh-Hant\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn3.11\cs\de\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.4\cs\pl\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn3.11\cs\ru\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\pt-BR\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.DependencyInjection.Abstractions.8.0.2\lib\netstandard2.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn3.11\cs\pt-BR\Microsoft.Extensions.Logging.Generators.resources.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\Packages\System.Diagnostics.DiagnosticSource.8.0.1\useSharedDesignerContext.txt" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\it\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.4\cs\it\Microsoft.Extensions.Logging.Generators.resources.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\LICENSE.TXT" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\de\Microsoft.Extensions.Logging.Generators.resources.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.xml" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\ja\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.xml" />
+    <None Include="Assets\Packages\System.Diagnostics.DiagnosticSource.8.0.1\LICENSE.TXT" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.4\cs\tr\Microsoft.Extensions.Logging.Generators.resources.dll" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Packages\Microsoft.Extensions.DependencyInjection.Abstractions.8.0.2\lib\netstandard2.1\Microsoft.Extensions.DependencyInjection.Abstractions.xml" />
+    <None Include="Assets\Packages\MySqlConnector.2.4.0\lib\netstandard2.1\MySqlConnector.xml" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn3.11\cs\Microsoft.Extensions.Logging.Generators.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.DependencyInjection.Abstractions.8.0.2\LICENSE.TXT" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\THIRD-PARTY-NOTICES.TXT" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn3.11\cs\ko\Microsoft.Extensions.Logging.Generators.resources.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\tr\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn3.11\cs\tr\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn3.11\cs\pl\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.4\cs\pt-BR\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn3.11\cs\it\Microsoft.Extensions.Logging.Generators.resources.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\Packages\Microsoft.Extensions.DependencyInjection.Abstractions.8.0.2\THIRD-PARTY-NOTICES.TXT" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.DependencyInjection.Abstractions.8.0.2\useSharedDesignerContext.txt" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn4.0\cs\ru\Microsoft.Extensions.Logging.Generators.resources.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\analyzers\dotnet\roslyn3.11\cs\fr\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\useSharedDesignerContext.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -470,12 +554,36 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.22f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions">
+      <HintPath>Assets\Packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
       <HintPath>Library\PackageCache\com.unity.collections@1.2.4\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>Assets\Packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\netstandard2.0\System.Diagnostics.DiagnosticSource.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MySqlConnector">
+      <HintPath>Assets\Packages\MySqlConnector.2.4.0\lib\netstandard2.1\MySqlConnector.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="BCrypt.Net-Next">
+      <HintPath>Assets\Plugins\BCrypt.Net-Next.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+      <HintPath>Assets\Packages\Microsoft.Extensions.DependencyInjection.Abstractions.8.0.2\lib\netstandard2.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.2\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
@@ -964,6 +1072,10 @@
     </Reference>
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.22f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NuGetForUnity">
+      <HintPath>Library\ScriptAssemblies\NuGetForUnity.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.2D.IK.Runtime">

@@ -1,6 +1,5 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Serialization;
 using UnityEngine;
 
 public class Plot : MonoBehaviour
@@ -12,9 +11,17 @@ public class Plot : MonoBehaviour
     private GameObject tower;
     private Color startColor;
 
+    private bool isStonePlot => plot.CompareTag("stonespawn");
+
     private void Start()
     {
-        startColor = sr.color;
+        // 💡 Szín beállítása típus szerint
+        if (isStonePlot)
+            startColor = Color.white;
+        else
+            startColor = new Color(0.5f, 0.5f, 0.5f, 0.5f); // átlátszó szürke
+
+        sr.color = startColor;
     }
 
     private void OnMouseEnter()
@@ -30,39 +37,45 @@ public class Plot : MonoBehaviour
     private void OnMouseDown()
     {
         Tower towerToBuild = BuildManager.main.GetSelectedTower();
+        int selected = BuildManager.main.SelctedTower;
 
-        if (!(BuildManager.main.SelctedTower == 1) && !(plot.tag == "stonespawn"))
+        // 💡 Kőtorony és stonespawn plot
+        if (selected == 1 && isStonePlot)
         {
-            if (tower != null) return;
-
-            if (towerToBuild.cost > LevelManager.main.currency)
-            {
-                Debug.Log("you cant afford this tower");
-                return;
-            }
-            else if (!(towerToBuild.cost > LevelManager.main.currency)) this.gameObject.SetActive(false);
-
-
-
-            LevelManager.main.SpendCurrency(towerToBuild.cost);
-            tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
+            TryBuildTower(towerToBuild);
         }
-        else if (BuildManager.main.SelctedTower == 1 && plot.tag == "stonespawn")
+        // 💡 Normál torony és nem stone plot
+        else if (selected != 1 && !isStonePlot)
         {
-            if (tower != null) return;
+            TryBuildTower(towerToBuild);
+        }
+    }
 
-            if (towerToBuild.cost > LevelManager.main.currency)
-            {
-                Debug.Log("you cant afford this tower");
-                return;
-            }
-            else if (!(towerToBuild.cost > LevelManager.main.currency)) this.gameObject.SetActive(false);
+    private void TryBuildTower(Tower towerToBuild)
+    {
+        if (tower != null) return;
 
-            LevelManager.main.SpendCurrency(towerToBuild.cost);
-            tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
-           
+        if (towerToBuild.cost > LevelManager.main.currency)
+        {
+            Debug.Log("you cant afford this tower");
+            return;
         }
 
+        LevelManager.main.SpendCurrency(towerToBuild.cost);
+        tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
+        sr.enabled = false;
+    }
 
+    public void ResetPlot()
+    {
+        tower = null;
+        sr.color = startColor;
+        sr.enabled = true;
+    }
+
+    public void SetTower(GameObject newTower)
+    {
+        tower = newTower;
+        sr.enabled = false;
     }
 }

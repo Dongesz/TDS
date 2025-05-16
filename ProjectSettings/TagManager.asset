@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - stonespawn
   - plot
+  - MainCanvas
+  - Castle
+  - StoneMine
   layers:
   - Default
   - TransparentFX

@@ -145,4 +145,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plot: {fileID: 8191066598234994743}
   sr: {fileID: 3560454777829284955}
-  hoverColor: {r: 1, g: 1, b: 1, a: 0.2509804}
+  hoverColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.2509804}

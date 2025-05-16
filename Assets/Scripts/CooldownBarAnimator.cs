@@ -11,13 +11,13 @@ public class CooldownBarAnimator : MonoBehaviour
     private int currentFrame;
     private float timer;
 
-    private Timer TimerScript;
+    private TimerManager TimerScript;
     private EnemySpawner EnemySpawnerScript;
 
 
     void Start()
     {
-        TimerScript = FindObjectOfType<Timer>();
+        TimerScript = FindObjectOfType<TimerManager>();
         EnemySpawnerScript = FindObjectOfType<EnemySpawner>();
         timePerFrame = cooldownDuration / cooldownSprites.Length;
         currentFrame = 0;
